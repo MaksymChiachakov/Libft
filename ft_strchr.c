@@ -6,7 +6,7 @@
 /*   By: mchiacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 12:12:51 by mchiacha          #+#    #+#             */
-/*   Updated: 2025/11/05 12:14:25 by mchiacha         ###   ########.fr       */
+/*   Updated: 2025/11/06 09:44:22 by mchiacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while(*s)
+	while (*s)
 	{
 		if (*s == (char)c)
 			return ((char *)s);
