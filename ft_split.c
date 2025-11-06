@@ -6,79 +6,91 @@
 /*   By: mchiacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:22:13 by mchiacha          #+#    #+#             */
-/*   Updated: 2025/11/06 12:05:17 by mchiacha         ###   ########.fr       */
+/*   Updated: 2025/11/06 12:27:37 by mchiacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	count_words(const char *s, char c)
+static int	count_words(const char *s, char c)
 {
-	size_t	i;
-	size_t	count;
+	int	count;
+	int	in_word;
 
-	i = 0;
 	count = 0;
-	while (s[i])
+	in_word = 0;
+	while (*s)
 	{
-		while (s[i] && s[i] == c)
-			i++;
-		if (s[i] && s[i] != c)
+		if (*s != c && !in_word)
 		{
+			in_word = 1;
 			count++;
-			while (s[i] && s[i] != c)
-				i++;
 		}
+		else if (*s == c)
+			in_word = 0;
+		s++;
 	}
 	return (count);
 }
 
-static char	*word_dup(const char *s, size_t start, size_t len)
+static char	*word_dup(const char *s, int start, int end)
 {
-	char	*p;
-	size_t	i;
+	char	*word;
+	int		i;
 
-	*p = malloc(len + 1);
 	i = 0;
-	if (!p)
+	word = malloc(end - start + 1);
+	if (!word)
 		return (NULL);
-	while (i < len)
+	while (start < end)
+		word[i++] = s[start++];
+	word[i] = '\0';
+	return (word);
+}
+
+static int	ft_fill_words(char const *s, char c, char **res)
+{
+	int	i;
+	int	j;
+	int	start;
+
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		p[i] = s[start + i];
-		i++;
+		while (s[i] && s[i] == c)
+			i++;
+		start = i;
+		while (s[i] && s[i] != c)
+			i++;
+		if (i > start)
+		{
+			res[j] = word_dup(s, start, i);
+			if (!res[j++])
+				return (0);
+		}
 	}
-	p[i] = '\0';
-	return (p);
+	res[j] = NULL;
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
-	size_t	j;
-	size_t	start;
-	size_t	words;
 	char	**res;
+	int		words;
 
-	i = 0;
-	j = 0;
-	start = 0;
+	if (!s)
+		return (NULL);
 	words = count_words(s, c);
 	res = malloc((words + 1) * sizeof(char *));
-	if (!res || !s)
+	if (!res)
 		return (NULL);
-	while (s[i] && s[i] == c)
-		i++;
-	start = i;
-	while (s[i] && s[i] != c)
-		i++;
-	res[j++] = word_dup(s, start, i - start);
-	if (!res[j - 1])
+	if (!ft_fill_words(s, c, res))
 	{
-		while (j--) 
-			free(res[j]);
-			free(res);
+		while (words--)
+			free(res[words]);
+		free(res);
 		return (NULL);
 	}
-	res[j] = NULL;
 	return (res);
 }
