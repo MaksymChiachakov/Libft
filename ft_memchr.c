@@ -6,11 +6,11 @@
 /*   By: mchiacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 12:22:38 by mchiacha          #+#    #+#             */
-/*   Updated: 2025/11/06 09:43:43 by mchiacha         ###   ########.fr       */
+/*   Updated: 2025/11/06 09:58:23 by mchiacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

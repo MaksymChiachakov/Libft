@@ -6,11 +6,11 @@
 /*   By: mchiacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 17:48:41 by mchiacha          #+#    #+#             */
-/*   Updated: 2025/11/04 17:53:23 by mchiacha         ###   ########.fr       */
+/*   Updated: 2025/11/06 09:57:08 by mchiacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

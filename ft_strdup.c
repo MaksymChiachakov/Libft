@@ -6,11 +6,11 @@
 /*   By: mchiacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 09:35:05 by mchiacha          #+#    #+#             */
-/*   Updated: 2025/11/06 09:38:04 by mchiacha         ###   ########.fr       */
+/*   Updated: 2025/11/06 10:02:03 by mchiacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 char	*ft_strdup(const char *s1)
 {
