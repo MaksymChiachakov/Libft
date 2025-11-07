@@ -6,11 +6,12 @@
 /*   By: mchiacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:22:13 by mchiacha          #+#    #+#             */
-/*   Updated: 2025/11/06 12:27:37 by mchiacha         ###   ########.fr       */
+/*   Updated: 2025/11/07 16:23:40 by mchiacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static int	count_words(const char *s, char c)
 {
@@ -48,6 +49,13 @@ static char	*word_dup(const char *s, int start, int end)
 	return (word);
 }
 
+static void	free_all(char **res, int j)
+{
+	while (j > 0)
+		free(res[--j]);
+	free(res);
+}
+
 static int	ft_fill_words(char const *s, char c, char **res)
 {
 	int	i;
@@ -67,7 +75,10 @@ static int	ft_fill_words(char const *s, char c, char **res)
 		{
 			res[j] = word_dup(s, start, i);
 			if (!res[j++])
+			{
+				free_all(res, j);
 				return (0);
+			}
 		}
 	}
 	res[j] = NULL;
@@ -86,11 +97,6 @@ char	**ft_split(char const *s, char c)
 	if (!res)
 		return (NULL);
 	if (!ft_fill_words(s, c, res))
-	{
-		while (words--)
-			free(res[words]);
-		free(res);
 		return (NULL);
-	}
 	return (res);
 }
