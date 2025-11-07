@@ -6,7 +6,7 @@
 /*   By: mchiacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 09:22:41 by mchiacha          #+#    #+#             */
-/*   Updated: 2025/11/07 12:24:50 by mchiacha         ###   ########.fr       */
+/*   Updated: 2025/11/07 15:02:31 by mchiacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_atoi(const char *str)
 		if (res * sign > 2147483647)
 			return (2147483647);
 		if (res * sign < -2147483647)
-			return (-2147483647);
+			return (-2147483648);
 		str++;
 	}
 	return ((int)(res * sign));
