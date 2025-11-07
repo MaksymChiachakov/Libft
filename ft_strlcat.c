@@ -6,11 +6,11 @@
 /*   By: mchiacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:55:37 by mchiacha          #+#    #+#             */
-/*   Updated: 2025/11/06 11:59:32 by mchiacha         ###   ########.fr       */
+/*   Updated: 2025/11/06 12:54:31 by mchiacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

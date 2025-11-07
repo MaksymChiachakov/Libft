@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchiacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/06 09:51:08 by mchiacha          #+#    #+#             */
-/*   Updated: 2025/11/07 12:28:08 by mchiacha         ###   ########.fr       */
+/*   Created: 2025/11/07 11:09:17 by mchiacha          #+#    #+#             */
+/*   Updated: 2025/11/07 11:13:47 by mchiacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_lstadd_back(t_list **lst, t_list *newnode)
 {
-	if (!s)
+	t_list	*last;
+
+	if (!lst || !newnode)
 		return ;
-	ft_putstr_fd(s, fd);
-	write(fd, "\n", 1);
+	if (!*lst)
+	{
+		*lst = newnode;
+		return ;
+	}
+	last = ft_lstlast(*lst);
+	last->next = newnode;
 }

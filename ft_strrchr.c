@@ -6,7 +6,7 @@
 /*   By: mchiacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 12:14:42 by mchiacha          #+#    #+#             */
-/*   Updated: 2025/11/06 10:04:51 by mchiacha         ###   ########.fr       */
+/*   Updated: 2025/11/06 12:54:55 by mchiacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strrchr(const char *s, int c)
 {
 	const char	*last;
 
-	*last = NULL;
+	last = NULL;
 	while (*s)
 	{
 		if (*s == (char)c)

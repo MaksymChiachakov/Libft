@@ -6,7 +6,7 @@
 /*   By: mchiacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 09:22:41 by mchiacha          #+#    #+#             */
-/*   Updated: 2025/11/06 09:56:39 by mchiacha         ###   ########.fr       */
+/*   Updated: 2025/11/07 12:24:50 by mchiacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,29 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	result;
+	int	res;
 	int	sign;
 
-	i = 0;
-	result = 0;
+	res = 0;
 	sign = 1;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\r' || \
-		str[i] == '\f' || str[i] == '\n' || str[i] == '\v')
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	while (*str == ' ' || *str == '\t' || *str == '\r' || \
+		*str == '\f' || *str == '\n' || *str == '\v' || \
+		(*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		if (str[i] == '-')
-			sign *= -1;
+		if (*str == '-')
+			sign = -1;
+		str++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		result = result * 10 + (str[i] - '0');
-		i++;
+		res = res * 10 + (*str - '0');
+		if (res * sign > 2147483647)
+			return (2147483647);
+		if (res * sign < -2147483647)
+			return (-2147483647);
+		str++;
 	}
-	return (result * sign);
+	return ((int)(res * sign));
 }

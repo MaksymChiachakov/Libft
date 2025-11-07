@@ -6,7 +6,7 @@
 /*   By: mchiacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 10:54:26 by mchiacha          #+#    #+#             */
-/*   Updated: 2025/11/06 11:03:19 by mchiacha         ###   ########.fr       */
+/*   Updated: 2025/11/06 12:56:21 by mchiacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_itoa(int n)
 
 	num = n;
 	len = count_digits(num);
-	*res = malloc(len + 1);
+	res = malloc(len + 1);
 	if (!res)
 		return (NULL);
 	res[len] = '\0';

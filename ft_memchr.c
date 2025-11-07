@@ -6,7 +6,7 @@
 /*   By: mchiacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 12:22:38 by mchiacha          #+#    #+#             */
-/*   Updated: 2025/11/06 09:58:23 by mchiacha         ###   ########.fr       */
+/*   Updated: 2025/11/06 12:55:08 by mchiacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*p;
 
-	*p = s;
+	p = s;
 	while (n--)
 	{
 		if (*p == (unsigned char)c)
